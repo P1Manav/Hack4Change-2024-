@@ -14,7 +14,9 @@ import Transaction from "./models/Transaction.js";
 import { kpis, products, transactions } from "./data/data.js";
 
 /* CONFIGURATIONS */
-dotenv.config();
+dotenv.config(); // Ensure dotenv is called before accessing environment variables
+console.log('Mongo URL:', process.env.MONGO_URL); // Add this line to check the value
+
 const app = express();
 app.use(express.json());
 app.use(helmet());
@@ -40,9 +42,9 @@ mongoose
     app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
 
     /* ADD DATA ONE TIME ONLY OR AS NEEDED */
-    // await mongoose.connection.db.dropDatabase();
-    // KPI.insertMany(kpis);
-    // Product.insertMany(products);
-    // Transaction.insertMany(transactions);
+    //await mongoose.connection.db.dropDatabase();
+    //KPI.insertMany(kpis);
+    //Product.insertMany(products);
+    //Transaction.insertMany(transactions);
   })
   .catch((error) => console.log(`${error} did not connect`));

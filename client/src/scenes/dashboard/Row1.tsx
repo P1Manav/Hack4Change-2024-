@@ -21,7 +21,6 @@ import {
 const Row1 = () => {
   const { palette } = useTheme();
   const { data } = useGetKpisQuery();
-
   const revenue = useMemo(() => {
     return (
       data &&
@@ -33,7 +32,7 @@ const Row1 = () => {
       })
     );
   }, [data]);
-
+  
   const revenueExpenses = useMemo(() => {
     return (
       data &&
@@ -46,7 +45,7 @@ const Row1 = () => {
       })
     );
   }, [data]);
-
+  
   const revenueProfit = useMemo(() => {
     return (
       data &&
@@ -59,7 +58,7 @@ const Row1 = () => {
       })
     );
   }, [data]);
-
+  
   return (
     <>
       <DashboardBox gridArea="a">
