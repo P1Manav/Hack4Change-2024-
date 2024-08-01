@@ -8,7 +8,7 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   const { palette } = useTheme();
-  const [selected, setSelected] = useState("dashboard");
+  const [selected, setSelected] = useState("Dashboard");
   return (
     <FlexBetween mb="0.25rem" p="0.5rem 0rem" color={palette.grey[300]}>
       {/* LEFT SIDE */}
@@ -21,28 +21,38 @@ const Navbar = (props: Props) => {
 
       {/* RIGHT SIDE */}
       <FlexBetween gap="2rem">
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+        <Box sx={{ "&:hover": {
+                color: palette.primary[700]
+        } }}>
           <Link
             to="/"
-            onClick={() => setSelected("dashboard")}
+            onClick={() => setSelected("Dashboard")}
             style={{
-              color: selected === "dashboard" ? "inherit" : palette.grey[700],
+              color: selected === "Dashboard" ? "inherit" : palette.grey[700],
               textDecoration: "inherit",
+                backgroundColor: selected === "Dashboard" ? "rgba(128, 128, 128, 0.3)" : "",
+                padding : selected === "Dashboard" ? "8px" : "",
+                borderRadius: selected === "Dashboard" ? "10px" :""
+
             }}
           >
-            dashboard
+            Dashboard
           </Link>
         </Box>
-        <Box sx={{ "&:hover": { color: palette.primary[100] } }}>
+        <Box sx={{ "&:hover": { color: palette.primary[700]} }}>
           <Link
             to="/predictions"
-            onClick={() => setSelected("predictions")}
+            onClick={() => setSelected("Predictions")}
             style={{
-              color: selected === "predictions" ? "inherit" : palette.grey[700],
+              color: selected === "Predictions" ? "inherit" : palette.grey[700],
               textDecoration: "inherit",
+                backgroundColor: selected === "Predictions" ? "rgba(128, 128, 128, 0.3)" : "",
+                padding : selected === "Predictions" ? "8px" : "",
+                borderRadius: selected === "Predictions" ? "10px" :""
+
             }}
           >
-            predictions
+            Predictions
           </Link>
         </Box>
       </FlexBetween>
