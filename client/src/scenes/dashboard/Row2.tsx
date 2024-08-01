@@ -28,10 +28,51 @@ const pieData = [
 const Row2 = () => {
   const { palette } = useTheme();
   const pieColors = [palette.primary[800], palette.primary[300]];
-  const { data: operationalData } = useGetKpisQuery();
-  const { data: productData } = useGetProductsQuery();
-  console.log("data :" , productData);
-  console.log("data :" , operationalData);
+  // const { data: operationalData } = useGetKpisQuery();
+  // const { data: productData } = useGetProductsQuery();
+
+  const operationalData = [
+    {
+      monthlyData: [
+        { month: "January", operationalExpenses: 15000, nonOperationalExpenses: 5000 },
+        { month: "February", operationalExpenses: 18000, nonOperationalExpenses: 6000 },
+        { month: "March", operationalExpenses: 14000, nonOperationalExpenses: 4500 },
+        { month: "April", operationalExpenses: 20000, nonOperationalExpenses: 7000 },
+        { month: "May", operationalExpenses: 19000, nonOperationalExpenses: 6500 },
+        { month: "June", operationalExpenses: 17000, nonOperationalExpenses: 5500 },
+        { month: "July", operationalExpenses: 16000, nonOperationalExpenses: 5000 },
+        { month: "August", operationalExpenses: 22000, nonOperationalExpenses: 8000 },
+        { month: "September", operationalExpenses: 21000, nonOperationalExpenses: 7500 },
+        { month: "October", operationalExpenses: 18500, nonOperationalExpenses: 6000 },
+        { month: "November", operationalExpenses: 16500, nonOperationalExpenses: 5500 },
+        { month: "December", operationalExpenses: 25000, nonOperationalExpenses: 9000 },
+      ],
+    },
+  ];
+
+  const productData = [
+    // Electronics
+    { _id: "elec001", name: "Smartphone Pro Max", price: 999, expense: 450, category: "Electronics", stock: 120 },
+    { _id: "elec002", name: "Ultra HD TV", price: 1499, expense: 700, category: "Electronics", stock: 80 },
+    { _id: "elec003", name: "Wireless Noise-Cancelling Headphones", price: 299, expense: 120, category: "Electronics", stock: 250 },
+    { _id: "elec004", name: "Smartwatch Series 8", price: 399, expense: 180, category: "Electronics", stock: 180 },
+
+    // Apparel
+    { _id: "app001", name: "Men's Slim Fit Jeans", price: 59, expense: 25, category: "Apparel", stock: 300 },
+    { _id: "app002", name: "Women's Summer Dress", price: 49, expense: 20, category: "Apparel", stock: 450 },
+    { _id: "app003", name: "Unisex Hooded Sweatshirt", price: 39, expense: 15, category: "Apparel", stock: 500 },
+    { _id: "app004", name: "Children's T-Shirt Pack", price: 25, expense: 10, category: "Apparel", stock: 600 },
+
+    // Home & Kitchen
+    { _id: "hk001", name: "Air Fryer XL", price: 119, expense: 55, category: "Home & Kitchen", stock: 100 },
+    { _id: "hk002", name: "Stainless Steel Cookware Set", price: 199, expense: 90, category: "Home & Kitchen", stock: 60 },
+    { _id: "hk003", name: "Coffee Maker with Grinder", price: 89, expense: 40, category: "Home & Kitchen", stock: 150 },
+    { _id: "hk004", name: "Luxury Bedding Set", price: 249, expense: 110, category: "Home & Kitchen", stock: 40 },
+
+    // ...more products (you can add hundreds or even thousands!)
+  ];
+
+
   const operationalExpenses = useMemo(() => {
     return (
       operationalData &&

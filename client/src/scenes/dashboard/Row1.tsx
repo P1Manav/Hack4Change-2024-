@@ -20,7 +20,28 @@ import {
 
 const Row1 = () => {
   const { palette } = useTheme();
-  const { data } = useGetKpisQuery();
+  // const { data } = useGetKpisQuery();
+  const data = [
+    {
+      monthlyData: [
+        { month: "January", revenue: 85000, expenses: 28000 },
+        { month: "February", revenue: 92000, expenses: 31500 },
+        { month: "March", revenue: 78500, expenses: 25500 },
+        { month: "April", revenue: 112000, expenses: 38000 },
+        { month: "May", revenue: 105000, expenses: 34000 },
+        { month: "June", revenue: 98000, expenses: 32000 },
+        { month: "July", revenue: 108000, expenses: 35000 },
+        { month: "August", revenue: 120000, expenses: 41000 },
+        { month: "September", revenue: 115000, expenses: 37000 },
+        { month: "October", revenue: 102000, expenses: 33000 },
+        { month: "November", revenue: 95000, expenses: 30000 },
+        { month: "December", revenue: 130000, expenses: 45000 },
+      ],
+    },
+  ];
+
+
+  //Demo Data
   const revenue = useMemo(() => {
     return (
       data &&
@@ -32,7 +53,8 @@ const Row1 = () => {
       })
     );
   }, [data]);
-  
+
+
   const revenueExpenses = useMemo(() => {
     return (
       data &&
@@ -45,7 +67,8 @@ const Row1 = () => {
       })
     );
   }, [data]);
-  
+
+
   const revenueProfit = useMemo(() => {
     return (
       data &&
