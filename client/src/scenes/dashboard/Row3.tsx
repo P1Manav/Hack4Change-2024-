@@ -15,9 +15,24 @@ const Row3 = () => {
   const { palette } = useTheme();
   const pieColors = [palette.primary[800], palette.primary[500]];
 
-  const { data: kpiData } = useGetKpisQuery();
+  // const { data: kpiData } = useGetKpisQuery();
   const { data: productData } = useGetProductsQuery();
   const { data: transactionData } = useGetTransactionsQuery();
+
+  const kpiData = [
+    {
+      totalExpenses: 10000,
+      expensesByCategory: {
+        Marketing: 3000,
+        Operations: 2500,
+        Development: 4500,
+      },
+    },
+  ];
+
+
+
+
 
   const pieChartData = useMemo(() => {
     if (kpiData) {
